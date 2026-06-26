@@ -597,6 +597,50 @@ export default function VedicLoresPage() {
               </p>
             </div>
 
+            <div className="w-full max-w-4xl px-2">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#24110a]/60 to-[#120703]/80 border border-amber-500/20 p-6 sm:p-8 shadow-2xl relative">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+                
+                <div className="text-center mb-6">
+                  <span className="text-xs uppercase tracking-widest text-amber-500 font-bold font-cinzel">Civilizational Wisdom</span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-cinzel text-amber-100 mt-1">Featured Sacred Shloka</h3>
+                </div>
+
+                <div className="min-h-[160px] flex flex-col justify-center items-center text-center px-2 py-4 bg-[#140804]/50 border border-amber-950 rounded-xl relative">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#2c130b] px-3 py-0.5 rounded-full border border-amber-950 text-[10px] text-amber-400 font-cinzel font-bold">
+                    Source: {shlokas[currentLoreIndex].source}
+                  </div>
+                  
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-amber-400/90 font-lora mb-3 tracking-wide filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed">
+                    {shlokas[currentLoreIndex].verse}
+                  </h4>
+                  
+                  <p className="text-xs sm:text-sm text-amber-200/50 italic mb-2 font-mono">
+                    "{shlokas[currentLoreIndex].translit}"
+                  </p>
+                  
+                  <p className="text-sm sm:text-base font-semibold text-amber-100 max-w-xl mb-3">
+                    "{shlokas[currentLoreIndex].translation}"
+                  </p>
+                  
+                  <p className="text-xs sm:text-sm text-amber-200/60 leading-relaxed max-w-2xl border-t border-amber-900/20 pt-3">
+                    {shlokas[currentLoreIndex].lore}
+                  </p>
+                </div>
+
+                <div className="flex justify-center mt-6">
+                  <button 
+                    onClick={() => setCurrentLoreIndex((prev) => (prev + 1) % shlokas.length)}
+                    className="group flex items-center space-x-2 bg-gradient-to-r from-amber-600/30 via-orange-600/20 to-amber-600/30 hover:from-amber-600/50 hover:to-orange-600/40 text-amber-300 hover:text-white border border-amber-500/30 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 font-cinzel"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
+                    <span>Seek Another Wisdom</span>
+                    <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Quick Links Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl px-2">
               <div 
@@ -703,49 +747,7 @@ export default function VedicLoresPage() {
             </div>
 
             {/* Civilization Wisdom / Shloka cycler */}
-            <div className="w-full max-w-4xl px-2">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#24110a]/60 to-[#120703]/80 border border-amber-500/20 p-6 sm:p-8 shadow-2xl relative">
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-                
-                <div className="text-center mb-6">
-                  <span className="text-xs uppercase tracking-widest text-amber-500 font-bold font-cinzel">Civilizational Wisdom</span>
-                  <h3 className="text-xl sm:text-2xl font-bold font-cinzel text-amber-100 mt-1">Featured Sacred Shloka</h3>
-                </div>
-
-                <div className="min-h-[160px] flex flex-col justify-center items-center text-center px-2 py-4 bg-[#140804]/50 border border-amber-950 rounded-xl relative">
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#2c130b] px-3 py-0.5 rounded-full border border-amber-950 text-[10px] text-amber-400 font-cinzel font-bold">
-                    Source: {shlokas[currentLoreIndex].source}
-                  </div>
-                  
-                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-amber-400/90 font-lora mb-3 tracking-wide filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-relaxed">
-                    {shlokas[currentLoreIndex].verse}
-                  </h4>
-                  
-                  <p className="text-xs sm:text-sm text-amber-200/50 italic mb-2 font-mono">
-                    "{shlokas[currentLoreIndex].translit}"
-                  </p>
-                  
-                  <p className="text-sm sm:text-base font-semibold text-amber-100 max-w-xl mb-3">
-                    "{shlokas[currentLoreIndex].translation}"
-                  </p>
-                  
-                  <p className="text-xs sm:text-sm text-amber-200/60 leading-relaxed max-w-2xl border-t border-amber-900/20 pt-3">
-                    {shlokas[currentLoreIndex].lore}
-                  </p>
-                </div>
-
-                <div className="flex justify-center mt-6">
-                  <button 
-                    onClick={() => setCurrentLoreIndex((prev) => (prev + 1) % shlokas.length)}
-                    className="group flex items-center space-x-2 bg-gradient-to-r from-amber-600/30 via-orange-600/20 to-amber-600/30 hover:from-amber-600/50 hover:to-orange-600/40 text-amber-300 hover:text-white border border-amber-500/30 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 font-cinzel"
-                  >
-                    <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
-                    <span>Seek Another Lore</span>
-                    <Sparkles className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
-                  </button>
-                </div>
-              </div>
-            </div>
+            
           </div>
         )}
 
